@@ -6,42 +6,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input{
-            width: 100%;
+        body{
             text-align: center;
+            padding: 0px;
+            margin: 0px;
+            margin-top: -15px;
+            background-color: rgba(255, 140, 0, 0.178);
+            height: 102vh;
+            width: 100vw;
+            backdrop-filter: blur(8px);
+            background-image: url('bg1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
         }
+        input{
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 1.45em;
+            padding: 0.25em 0.5em 0.3125em;
+            color: rgb(255, 255, 255);
+            border-radius: 0.25em;
+            background-color: rgba(68, 68, 68, 0.527);
+            transition: all 0.1s;
+            width: 100%;
+            height: 29px;
+            text-align: center;
+            font-family:"Playfair Display", serif; 
+            text-transform:uppercase;
+        }
+        input:focus {
+            outline: none;
+            color: rgb(255, 255, 255);
+            border-color: rgba(255, 255, 255, 0.75);
+        }
+        input.keyup {
+            color: white;
+            border-color: white;
+            text-shadow: 0 0 0.125em white;
+            box-shadow: 0 0 0.25em white, inset 0 0 0.25em white;
+        }
+
+        textarea{
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            width: 100%;
+            font-family:"Playfair Display", serif; 
+            padding: 16px 20px 0 20px;
+            height: 80px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 5px;
+           
+            background-color: rgba(68, 68, 68, 0.418);
+            color: #ffffff;
+        }
+
+        h1{
+            color: aliceblue;
+            font-size: 50px;
+            text-align:center; text-transform:uppercase;
+            letter-spacing:1px;
+            font-family:"Playfair Display", serif; 
+            font-weight:600;
+            border: 2px solid rgb(128, 96, 66);
+        }
+        label{
+            color: rgb(255, 255, 255);
+            font-family:"Playfair Display", serif; 
+            font-size: 20px;
+            text-transform:uppercase;
+        }#main{
+            width: 70%;
+            margin: auto;
+            padding-top: 40px;
+        }
+
     </style>
 </head>
 <body style="text-align: center;background-color: rgba(255, 140, 0, 0.178);">
-    
-    <h1>The Enigma Machine</h1>
+    <div id="main">
+            <h1>The Enigma Machine</h1>
 
 
-    <label for="orientation">Rotor orientation:</label>
-    <input type="text" id="orientation" name="orientation" placeholder="123 in any permutation, Ex: 231"><br><br>
+            <label for="orientation">Rotor orientation:</label><br>
+            <input type="text" id="orientation" name="orientation" oninput="takeinput()" placeholder="123 in any permutation, Ex: 231"><br><br>
 
-    <label for="rotate">Rotor move:</label>
-    <input type="text" id="rotate" name="rotate" placeholder="any 3 letters, Ex: DEB"><br><br>
+            <label for="rotate">Rotor move:</label><br>
+            <input type="text" id="rotate" name="rotate" oninput="takeinput()" placeholder="any 3 letters, Ex: DEB"><br><br>
 
-    <label for="plugboard">Plug board:</label>
-    <input type="text" id="plugboard" name="plugboard"  placeholder="any number of alphabet pairs less than 13, EX: DG YH OK WS"><br><br>
+            <label for="plugboard">Plug board:</label><br>
+            <input type="text" id="plugboard" name="plugboard" oninput="takeinput()" placeholder="any number of alphabet pairs less than 13, EX: DG YH OK WS"><br><br>
 
-    <label for="plugboard">Text input:</label>
-    <textarea id="txt" name="txt" style="width: 100%;text-align: center;resize: none;" rows="5" >
-        Type any sentence here to encrypt or decrypt
-    </textarea><br>
-    
-    <button  onclick="takeinput()">Submit</button>
+            <label for="plugboard">Text input:</label><br>
+            <textarea id="txt" name="txt" style="width: 100%;text-align: center;resize: none;" rows="5" oninput="takeinput()">
+                Type any sentence here to encrypt or decrypt
+            </textarea><br>
+            
+            <button  onclick="takeinput()">Submit</button>
 
-    <hr><br>
+            <hr><br>
 
-    <div >        
-    <textarea  style="width: 100%;text-align: center;resize: none;" rows="5" id="cipher" readonly>
-        encrypted code will appear here    
-    </textarea><br>
-    <button onclick="copy_to_clipboard()">Copy text</button>
+            <div >        
+            <textarea  style="width: 100%;text-align: center;resize: none;" rows="5" id="cipher" readonly>
+                encrypted code will appear here    
+            </textarea><br>
+            <button onclick="copy_to_clipboard()">Copy text</button>
+            </div>
     </div>
-   
     <script src="enigma.js"></script>
 
 
