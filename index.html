@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="text-align: center;background-color: rgba(255, 140, 0, 0.178);">
+    
+    <h1>The Enigma Machine</h1>
+
+
+    <label for="orientation">Rotor orientation:</label>
+    <input type="text" id="orientation" name="orientation" placeholder="123 in any permutation, Ex: 231"><br><br>
+
+    <label for="rotate">Rotor move:</label>
+    <input type="text" id="rotate" name="rotate" placeholder="any 3 letters, Ex: DEB"><br><br>
+
+    <label for="plugboard">Plug board:</label>
+    <input type="text" id="plugboard" name="plugboard"  placeholder="any number of alphabet pairs less than 13, EX: DG YH OK WS"><br><br>
+
+    <label for="plugboard">Text input:</label>
+    <textarea id="txt" name="txt" style="width: 100%;text-align: center;resize: none;" rows="5" >
+        Type any sentence here to encrypt or decrypt
+    </textarea><br>
+    
+    <button  onclick="takeinput()">Submit</button>
+
+    <hr><br>
+
+    <div >        
+    <textarea  style="width: 100%;text-align: center;resize: none;" rows="5" id="cipher" readonly>
+        encrypted code will appear here    
+    </textarea><br>
+    <button onclick="copy_to_clipboard()">Copy text</button>
+    </div>
+   
+    <script src="enigma.js"></script>
+
+
+</body>
+</html>
